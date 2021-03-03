@@ -8,38 +8,21 @@ namespace _01_ByteBank
 {
     public class ContaCorrente
     {
-        public Cliente Titular { get; set; } = new Cliente();
+        #region Atributos
         public int agencia { get; set; }
         public int numero { get; set; }
         private double _saldo;
+        public Cliente Titular { get; set; } = new Cliente();
+        public static int TotalContas { get; private set; }
+        #endregion
 
-        #region Métodos
-
-        public void Depositar(double valor)
+        #region Construtor
+        public ContaCorrente(int p_agencia, int p_numero)
         {
-            _saldo += valor;
+            agencia = p_agencia;
+            numero = p_numero;
+            TotalContas++;
         }
-
-        public bool Sacar(double valor)
-        {
-            if (valor > _saldo)
-                return false;
-
-            _saldo -= valor;
-            return true;
-        }
-
-        public bool Transferir(ContaCorrente contaDestino, double valor)
-        {
-            if (valor > _saldo)
-                return false;
-
-            _saldo -= valor;
-            contaDestino._saldo += valor;
-            return true;
-
-        }
-
         #endregion
 
         #region Propriedades
@@ -76,11 +59,42 @@ namespace _01_ByteBank
         }
         #endregion
 
+        #region Métodos
+
+        public void Depositar(double valor)
+        {
+            _saldo += valor;
+        }
+
+        public bool Sacar(double valor)
+        {
+            if (valor > _saldo)
+                return false;
+
+            _saldo -= valor;
+            return true;
+        }
+
+        public bool Transferir(ContaCorrente contaDestino, double valor)
+        {
+            if (valor > _saldo)
+                return false;
+
+            _saldo -= valor;
+            contaDestino._saldo += valor;
+            return true;
+
+        }
+
+        #endregion
+
+        #region Métodos Override
         //Subescrevendo o método ToString da Classe.
         public override string ToString()
         {
             return $"Titular: {Titular.nome}\nAgência: {agencia}\nNúmero: {numero}\nSaldo: R$ {_saldo}\n";
         }
+        #endregion
     }
 }
 

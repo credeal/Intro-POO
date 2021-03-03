@@ -11,16 +11,12 @@ namespace _01_ByteBank
         static void Main(string[] args)
         {
 
-            ContaCorrente contaGabriela =  new ContaCorrente();
+            ContaCorrente contaGabriela =  new ContaCorrente(111, 111111);
             contaGabriela.Titular.nome = "Gabriela Krapovics";
-            contaGabriela.agencia = 111;
-            contaGabriela.numero = 111111;
             contaGabriela.Saldo = 100;
 
-            ContaCorrente contaLucas = new ContaCorrente();
+            ContaCorrente contaLucas = new ContaCorrente(222, 222222);
             contaLucas.Titular.nome = "Lucas Mitsuri";
-            contaLucas.agencia = 222;
-            contaLucas.numero = 222222;
             contaLucas.Saldo = 100;
 
             Console.WriteLine("Valores Iniciais");
@@ -39,6 +35,8 @@ namespace _01_ByteBank
             contaGabriela.Transferir(contaLucas, 50);
             Console.WriteLine(contaGabriela);
             Console.WriteLine(contaLucas);
+
+            Console.WriteLine($"Número de contas criadas: {ContaCorrente.TotalContas}");
 
             Console.ReadLine();
         }
