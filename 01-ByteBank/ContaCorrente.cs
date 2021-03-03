@@ -8,42 +8,78 @@ namespace _01_ByteBank
 {
     public class ContaCorrente
     {
-        public Cliente titular = new Cliente();
-        public int agencia;
-        public int numero;
-        public double saldo;
+        public Cliente Titular { get; set; } = new Cliente();
+        public int agencia { get; set; }
+        public int numero { get; set; }
+        private double _saldo;
+
+        #region Métodos
 
         public void Depositar(double valor)
         {
-            saldo += valor;
+            _saldo += valor;
         }
 
         public bool Sacar(double valor)
         {
-            if (valor > saldo)
+            if (valor > _saldo)
                 return false;
 
-            saldo -= valor;
+            _saldo -= valor;
             return true;
         }
 
         public bool Transferir(ContaCorrente contaDestino, double valor)
         {
-            if (valor > saldo)
+            if (valor > _saldo)
                 return false;
 
-            saldo -= valor;
-            contaDestino.saldo += valor;
+            _saldo -= valor;
+            contaDestino._saldo += valor;
             return true;
 
         }
 
-        
+        #endregion
+
+        #region Propriedades
+
+        public double Saldo
+        {
+            get
+            {
+                return _saldo;
+            }
+            set
+            {
+                if (value < 0)
+                    return;
+
+                _saldo = value;
+            }
+        }
+
+
+
+        //Exemplos
+        public void SetSaldoEx(double valor)
+        {
+            if (valor <= 0)
+                return;
+
+            _saldo = valor;
+        }
+
+        public double GetSaldoEx()
+        {
+            return _saldo;
+        }
+        #endregion
 
         //Subescrevendo o método ToString da Classe.
         public override string ToString()
         {
-            return $"Titular: {titular.nome}\nAgência: {agencia}\nNúmero: {numero}\nSaldo: R$ {saldo}\n";
+            return $"Titular: {Titular.nome}\nAgência: {agencia}\nNúmero: {numero}\nSaldo: R$ {_saldo}\n";
         }
     }
 }

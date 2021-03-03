@@ -12,16 +12,16 @@ namespace _01_ByteBank
         {
 
             ContaCorrente contaGabriela =  new ContaCorrente();
-            contaGabriela.titular.nome = "Gabriela Krapovics";
+            contaGabriela.Titular.nome = "Gabriela Krapovics";
             contaGabriela.agencia = 111;
             contaGabriela.numero = 111111;
-            contaGabriela.saldo = 100;
+            contaGabriela.Saldo = 100;
 
             ContaCorrente contaLucas = new ContaCorrente();
-            contaLucas.titular.nome = "Lucas Mitsuri";
+            contaLucas.Titular.nome = "Lucas Mitsuri";
             contaLucas.agencia = 222;
             contaLucas.numero = 222222;
-            contaLucas.saldo = 100;
+            contaLucas.Saldo = 100;
 
             Console.WriteLine("Valores Iniciais");
             Console.WriteLine(contaGabriela);
