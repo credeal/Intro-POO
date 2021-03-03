@@ -12,13 +12,13 @@ namespace _01_ByteBank
         {
 
             ContaCorrente contaGabriela =  new ContaCorrente();
-            contaGabriela.titular = "Gabriela Krapovics";
+            contaGabriela.titular.nome = "Gabriela Krapovics";
             contaGabriela.agencia = 111;
             contaGabriela.numero = 111111;
             contaGabriela.saldo = 100;
 
             ContaCorrente contaLucas = new ContaCorrente();
-            contaLucas.titular = "Lucas Mitsuri";
+            contaLucas.titular.nome = "Lucas Mitsuri";
             contaLucas.agencia = 222;
             contaLucas.numero = 222222;
             contaLucas.saldo = 100;

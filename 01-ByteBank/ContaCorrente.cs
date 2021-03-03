@@ -8,7 +8,7 @@ namespace _01_ByteBank
 {
     public class ContaCorrente
     {
-        public string titular;
+        public Cliente titular = new Cliente();
         public int agencia;
         public int numero;
         public double saldo;
@@ -43,7 +43,7 @@ namespace _01_ByteBank
         //Subescrevendo o método ToString da Classe.
         public override string ToString()
         {
-            return $"Titular: {titular}\nAgência: {agencia}\nNúmero: {numero}\nSaldo: R$ {saldo}\n";
+            return $"Titular: {titular.nome}\nAgência: {agencia}\nNúmero: {numero}\nSaldo: R$ {saldo}\n";
         }
     }
 }
