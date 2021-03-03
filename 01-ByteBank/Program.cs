@@ -10,39 +10,35 @@ namespace _01_ByteBank
     {
         static void Main(string[] args)
         {
-            int um = 1;
-            int dois = 1;
 
             ContaCorrente contaGabriela =  new ContaCorrente();
             contaGabriela.titular = "Gabriela Krapovics";
             contaGabriela.agencia = 111;
             contaGabriela.numero = 111111;
-            contaGabriela.saldo = 0.00;
+            contaGabriela.saldo = 100;
 
             ContaCorrente contaLucas = new ContaCorrente();
             contaLucas.titular = "Lucas Mitsuri";
             contaLucas.agencia = 222;
             contaLucas.numero = 222222;
-            contaLucas.saldo = 0.00;
+            contaLucas.saldo = 100;
 
+            Console.WriteLine("Valores Iniciais");
             Console.WriteLine(contaGabriela);
             Console.WriteLine(contaLucas);
 
-            Console.WriteLine();
+            Console.WriteLine("Utilizando o método Sacar (50)");
+            contaGabriela.Sacar(50);
+            Console.WriteLine(contaGabriela);
 
-            //Tipo Valor
-            Console.WriteLine($"1 é igual a 1 ? { um == dois}");
+            Console.WriteLine("Utilizando o método Depositar(200)");
+            contaGabriela.Depositar(200);
+            Console.WriteLine(contaGabriela);
 
-            //Tipo Referência
-            Console.WriteLine($"Conta Gabriela é igual conta Lucas? { contaGabriela == contaLucas}");
-
-            //Tipo Valor
-            Console.WriteLine($"Conta Gabriela Saldo é igual conta Lucas Saldo? { contaGabriela.saldo == contaLucas.saldo}");
-
-            //Tipo Referência - As duas contas tão sendo apontadas para o mesmo endereço da memoria
-            contaLucas = contaGabriela;
-            Console.WriteLine($"Conta Gabriela é igual conta Lucas? { contaGabriela == contaLucas}");
-
+            Console.WriteLine("Utilizando o método Transferir(50)");
+            contaGabriela.Transferir(contaLucas, 50);
+            Console.WriteLine(contaGabriela);
+            Console.WriteLine(contaLucas);
 
             Console.ReadLine();
         }
